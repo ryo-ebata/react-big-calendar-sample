@@ -1,0 +1,127 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* react-big-calendar カスタムスタイル */
+.rbc-calendar {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+.rbc-header {
+  background-color: #fafafa;
+  border-bottom: 1px solid #f0f0f0;
+  padding: 8px 12px;
+  font-weight: 500;
+  color: #262626;
+}
+
+.rbc-time-header-content {
+  border-left: 1px solid #f0f0f0;
+}
+
+.rbc-time-content {
+  border-top: 1px solid #f0f0f0;
+}
+
+.rbc-timeslot-group {
+  border-bottom: 1px solid #f5f5f5;
+}
+
+.rbc-time-slot {
+  border-top: 1px solid #f5f5f5;
+}
+
+.rbc-day-slot .rbc-time-slot {
+  border-top: 1px solid #f5f5f5;
+}
+
+.rbc-current-time-indicator {
+  background-color: #ff4d4f;
+  height: 2px;
+  z-index: 3;
+}
+
+.rbc-event {
+  border-radius: 4px;
+  padding: 2px 6px;
+  font-size: 12px;
+  line-height: 1.4;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.rbc-event:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.rbc-event-content {
+  font-weight: 500;
+}
+
+.rbc-selected {
+  background-color: #1890ff !important;
+}
+
+.rbc-today {
+  background-color: #f6ffed;
+}
+
+.rbc-off-range-bg {
+  background-color: #fafafa;
+}
+
+.rbc-toolbar {
+  display: none;
+}
+
+/* Ant Design カスタマイズ */
+.ant-modal-header {
+  border-bottom: 1px solid #f0f0f0;
+  padding: 16px 24px;
+}
+
+.ant-modal-body {
+  padding: 24px;
+}
+
+.ant-modal-footer {
+  border-top: 1px solid #f0f0f0;
+  padding: 10px 16px;
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 768px) {
+  .rbc-calendar {
+    font-size: 12px;
+  }
+  
+  .rbc-header {
+    padding: 4px 8px;
+    font-size: 12px;
+  }
+  
+  .rbc-event {
+    font-size: 10px;
+    padding: 1px 4px;
+  }
+}
+
+/* スクロールバーのスタイリング */
+.rbc-time-content::-webkit-scrollbar {
+  width: 6px;
+}
+
+.rbc-time-content::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+.rbc-time-content::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 3px;
+}
+
+.rbc-time-content::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
+}

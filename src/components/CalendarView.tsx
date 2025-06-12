@@ -4,6 +4,7 @@ import moment from 'moment';
 import 'moment/locale/ja';
 import { CalendarEvent, CalendarViewType } from '../types/calendar';
 import { EventModal } from './EventModal';
+import { Video } from 'lucide-react';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
 
 // 日本語設定
@@ -108,6 +109,16 @@ export const CalendarView: React.FC<CalendarViewProps> = ({
     };
   }, []);
 
+  // カスタムイベントコンポーネント
+  const EventComponent = ({ event }: { event: CalendarEvent }) => (
+    <div className="flex items-center justify-between h-full">
+      <span className="truncate flex-1">{event.title}</span>
+      {event.meetLink && (
+        <Video className="w-3 h-3 ml-1 flex-shrink-0" />
+      )}
+    </div>
+  );
+
   // カレンダーメッセージの日本語化
   const messages = {
     allDay: '終日',
@@ -155,6 +166,9 @@ export const CalendarView: React.FC<CalendarViewProps> = ({
           popup
           eventPropGetter={eventStyleGetter}
           messages={messages}
+          components={{
+            event: EventComponent
+          }}
           className="h-full"
           style={{ height: 'calc(100vh - 200px)' }}
           formats={{

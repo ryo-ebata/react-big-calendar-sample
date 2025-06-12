@@ -48,6 +48,7 @@
   line-height: 1.4;
   cursor: pointer;
   transition: all 0.2s;
+  overflow: hidden;
 }
 
 .rbc-event:hover {
@@ -58,6 +59,10 @@
 
 .rbc-event-content {
   font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
 }
 
 .rbc-selected {
@@ -76,6 +81,25 @@
   display: none;
 }
 
+/* Meet アイコンのスタイル */
+.meet-icon {
+  opacity: 0.8;
+  transition: opacity 0.2s;
+}
+
+.rbc-event:hover .meet-icon {
+  opacity: 1;
+}
+
+/* イベントの詳細情報表示 */
+.rbc-event-label {
+  font-size: 11px;
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 /* Ant Design カスタマイズ */
 .ant-modal-header {
   border-bottom: 1px solid #f0f0f0;
@@ -89,6 +113,18 @@
 .ant-modal-footer {
   border-top: 1px solid #f0f0f0;
   padding: 10px 16px;
+}
+
+/* Meet リンクボタンのスタイル */
+.meet-join-button {
+  background: linear-gradient(135deg, #4285f4 0%, #34a853 100%);
+  border: none;
+  box-shadow: 0 2px 4px rgba(66, 133, 244, 0.3);
+}
+
+.meet-join-button:hover {
+  background: linear-gradient(135deg, #3367d6 0%, #2d8f47 100%);
+  box-shadow: 0 4px 8px rgba(66, 133, 244, 0.4);
 }
 
 /* レスポンシブ対応 */
@@ -105,6 +141,15 @@
   .rbc-event {
     font-size: 10px;
     padding: 1px 4px;
+  }
+  
+  .rbc-event-content {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .meet-icon {
+    margin-top: 2px;
   }
 }
 
@@ -124,4 +169,35 @@
 
 .rbc-time-content::-webkit-scrollbar-thumb:hover {
   background: #a8a8a8;
+}
+
+/* カレンダーの高さ調整 */
+.calendar-container {
+  height: calc(100vh - 120px);
+  min-height: 600px;
+}
+
+/* イベントの色分けを強化 */
+.rbc-event.meeting {
+  background-color: #1890ff;
+}
+
+.rbc-event.presentation {
+  background-color: #52c41a;
+}
+
+.rbc-event.lunch {
+  background-color: #fa8c16;
+}
+
+.rbc-event.conference {
+  background-color: #722ed1;
+}
+
+.rbc-event.review {
+  background-color: #eb2f96;
+}
+
+.rbc-event.client {
+  background-color: #13c2c2;
 }
